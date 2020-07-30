@@ -44,7 +44,7 @@ If ws.Cells(i + 1, tickerColumn).Value <> ws.Cells(i, tickerColumn).Value Then
         yearChange = closePrice - openPrice
     'percentChange
         If openPrice <> 0 Then
-                    percentChange = (yearChange / openPrice) * 100
+                    percentChange = (yearChange / openPrice) 
                 End If
     'store the total
         tickerVolume = tickerVolume + ws.Cells(i, 7).Value
@@ -60,6 +60,7 @@ If ws.Cells(i + 1, tickerColumn).Value <> ws.Cells(i, tickerColumn).Value Then
                 End If
      'write percent change and ticker volume
         ws.Range("K" & summaryRow).Value = percentChange
+        ws.Range("K" & summaryRow).NumberFormat = "0.00%"
         ws.Range("L" & summaryRow).Value = tickerVolume
    
     'reset values
